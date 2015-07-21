@@ -1,0 +1,45 @@
+\documentclass[a4paper, 12pt]{report}
+
+\input{./settings/Packages.tex}
+
+\begin{document}
+
+\input{./frontmatter/TitlePage.tex}
+\input{./frontmatter/Declaration.tex}
+\input{./frontmatter/Consent.tex}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\input{./Chapters/Summary.tex}
+
+\newpage
+\part{}
+
+\input{./Chapters/Introduction.tex}
+\newpage
+\input{./Chapters/Chapter_1.tex}
+\newpage
+\input{./Chapters/Chapter_2.tex}
+\newpage
+
+\part{}
+\input{./Chapters/Chapter_3.tex}
+\newpage
+\input{./Chapters/Case_Study.tex}
+\newpage
+\input{./Chapters/Conclusion.tex}
+
+% Move conclusion out of part 2
+% \addtocontents{toc}{\protect\addvspace{2.25em plus 1pt}}
+% \bookmarksetup{startatroot}
+% \newpage
+% \chapter{Conclusion}
+
+%References
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{./backmatter/References}
+
+\end{document}
