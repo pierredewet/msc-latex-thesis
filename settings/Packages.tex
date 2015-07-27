@@ -1,11 +1,66 @@
 \usepackage{classicthesis}
-% \usepackage[left=3cm,right=3cm,top=5cm,bottom=4cm,includehead,includefoot]{geometry}
-\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm,includehead,includefoot]{geometry}
+\usepackage[left=2.54cm,right=2.54cm,top=3cm,bottom=3cm,includehead,includefoot]{geometry}
+% \titleformat{\chapter}[display]%
+%   {\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\chapterNumber\thechapter}}{0pt}%
+%   {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]% http://tex.stackexchange.com/questions/84698/how-to-move-chapter-number-in-classicthesis-class
+
+% Chapter number to the left of the chapter title
+\ifthenelse{\boolean{@eulerchapternumbers}}% font for the chapter numbers
+    {\newcommand\mychapterNumber{\fontencoding{U}\fontfamily{eur}\fontseries{b}\fontsize{18}{19}\selectfont}}%
+    {\newcommand\mychapterNumber{\fontencoding{T1}\fontfamily{pplj}\fontsize{25}{26}\selectfont}}
+
+\ifthenelse{\boolean{@linedheaders}}%
+    {%
+    \titleformat{\chapter}[block]%
+        {\relax}{\titlerule\vspace*{.9\baselineskip}\\\raggedleft{\color{halfgray}\mychapterNumber\thechapter}}{1.2em}%
+        {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
+    }{%
+    \titleformat{\chapter}[block]%
+        {\relax}{{\color{halfgray}\mychapterNumber\thechapter}}{1.2em}%
+        {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
+    }
+
+\usepackage{xcolor}
 \usepackage{lipsum}
 \usepackage[pdftex]{graphicx}
+\usepackage{wrapfig} %wrap text around figures
+
+%Help for tables
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{multirow}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\normal}[1]{\multicolumn{1}{l}{#1}}
+
+
+% font warnings
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
 
 \usepackage[english]{babel}
 \usepackage[nottoc]{tocbibind}
+
+% Insert appendix
+\usepackage[toc,page]{appendix}
+
+%Code listings
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.90,0.90,0.90} 
+% define general listing settings
+\lstdefinestyle{numbers}{numbers=left, stepnumber=1, numberstyle=\small\color{gray}, numbersep=10pt}
+\lstdefinestyle{myFrame}{backgroundcolor=\color{backcolour}, frame=shadowbox, breaklines=true, breakatwhitespace=true, tabsize=4, showstringspaces=false}
+\lstdefinestyle{myCode}{keywordstyle=\color{blue}, commentstyle=\color{dkgreen}, stringstyle=\color{mauve}, aboveskip=3mm, belowskip=3mm, columns=flexible}
+\lstdefinestyle{mySQL}{language=SQL, style=numbers,style=myFrame, style=myCode}
+\lstdefinestyle{myC++}{language=C++, style=numbers,style=myFrame, style=myCode}
+\lstdefinestyle{myJava}{language=Java, style=numbers,style=myFrame, style=myCode}
 
 \usepackage{hyperref}
 \hypersetup{%draft, % = no hyperlinking at all (useful in b/w printouts)
@@ -42,6 +97,7 @@
 
 \usepackage{bookmark}
 
+%TOC styling
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 % \usepackage[subfigure]{tocloft} % subfigure option only if using subfigure package
 \renewcommand{\cfttoctitlefont} % ToC title
@@ -58,6 +114,10 @@
           {\cftsecfont} 
 \renewcommand{\cftsubsecpagefont} % subsection page numbers
           {\cftsubsecfont}
+
+%LOF styling
+
+
 
 \makeatletter
 \renewcommand*{\numberline}[1]
@@ -81,11 +141,14 @@
 \titleformat{\subsection}
 {\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
 
+% \input{./UserSettings.tex}
+\input{./settings/UserSettings.tex} 
+
 %  Signature and date includes
-\newcommand{\namesigdate}[2][5cm]{%
-  \begin{tabular}{@{}p{#1}@{}}
-    #2 \\[2\normalbaselineskip]\includegraphics[width=0.2\textwidth]{./images/sig} \hrule \\[0pt]
-    {\small \textit{Signature}} \\[2\normalbaselineskip] \today \hrule \\[0pt]
-    {\small \textit{Date}}
-  \end{tabular}
-}
+% \newcommand{\namesigdate}[2][5cm]{%
+%   \begin{tabular}{@{}p{#1}@{}}
+%     #2 \\[2\normalbaselineskip]\includegraphics[width=0.2\textwidth]{./images/sig} \hrule \\[0pt]
+%     {\small \textit{Signature}} \\[2\normalbaselineskip] \today \hrule \\[0pt]
+%     {\small \textit{Date}}
+%   \end{tabular}
+% }

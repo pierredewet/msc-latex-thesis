@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{report}
+\documentclass[a4paper, 10pt, table, floatperchapter]{report} 
 
 \input{./settings/Packages.tex}
 
@@ -7,24 +7,28 @@
 \input{./frontmatter/TitlePage.tex}
 \input{./frontmatter/Declaration.tex}
 \input{./frontmatter/Consent.tex}
+\input{./frontmatter/Abstract.tex}
+\input{./frontmatter/Acknowledgements.tex}
 
 \tableofcontents
 \listoffigures
 \listoftables
 
-\input{./Chapters/Summary.tex}
-
 \newpage
-\part{}
+% \part{}
 
 \input{./Chapters/Introduction.tex}
+\newpage
+\input{./Chapters/LitReview.tex}
+\newpage
+\input{./Chapters/ResearchMethodology.tex}
 \newpage
 \input{./Chapters/Chapter_1.tex}
 \newpage
 \input{./Chapters/Chapter_2.tex}
 \newpage
 
-\part{}
+% \part{}
 \input{./Chapters/Chapter_3.tex}
 \newpage
 \input{./Chapters/Case_Study.tex}
@@ -33,6 +37,7 @@
 
 % Move conclusion out of part 2
 % \addtocontents{toc}{\protect\addvspace{2.25em plus 1pt}}
+
 % \bookmarksetup{startatroot}
 % \newpage
 % \chapter{Conclusion}
@@ -41,5 +46,5 @@
 \newpage
 \bibliographystyle{unsrt}
 \bibliography{./backmatter/References}
-
+\input{./backmatter/Appendices.tex}
 \end{document}

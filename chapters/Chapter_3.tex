@@ -1,4 +1,4 @@
-\chapter{Chapter 3}
+\chapter{Yet another Chapter}
 \lipsum[1-3]
 \section{Section 01}
 This is a citation \cite{grand}.
@@ -6,4 +6,72 @@ This is a citation \cite{grand}.
 
 \section{Section 02}
 This is a citation \cite{grand}.
-\lipsum[2-3]
+lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
+Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero.
+
+\begin{table}[htbp]
+\begin{center}
+\resizebox{0.6\textwidth}{!}{
+\begin{tabular}{@{}l*2{>{\textbackslash\ttfamily}l}%
+  l<{Example text}l@{}}
+\toprule[1.5pt]
+  & \multicolumn{2}{c}{\head{Input}}
+  & \multicolumn{2}{c}{\head{Output}}\\
+  & \normal{\head{Command}} & \normal{\head{Declaration}}
+  & \normal{\head{Single use}} & \head{Combined}\\
+  \cmidrule(lr){2-3}\cmidrule(l){4-5}
+  \multirow{3}{*}{Family} &  textrm & rmfamily & \rmfamily & \\
+  & textsf & sffamily & \sffamily & \\
+  & texttt & ttfamily & \ttfamily & \\
+  \cmidrule(lr){2-3}\cmidrule(lr){4-4}
+  \multirow{2}{1.1cm}{Weight} & textbf & bfseries & \bfseries
+  & \multirow{2}{1.8cm}{\sffamily\bfseries Bold and sans-serif} \\
+        & textmd & mdseries & \mdseries & \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-4}
+\multirow{4}{*}{Shape} & textit & itshape & \itshape & \\
+        & textsl & slshape & \slshape &
+  \multirow{2}{1.8cm}{\sffamily\slshape Slanted and sans-serif}\\
+        & textsc & scshape & \scshape & \\
+        & textup & upshape & \upshape & \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-4}
+Default & textnormal & normalfont & \normalfont & \\
+\bottomrule[1.5pt]
+\end{tabular}}
+\caption{\LaTeX\ font selection}
+\end{center}
+\end{table}
+
+Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo.
+
+\begin{table}[htbp]
+% \caption{}
+\resizebox{1.0\textwidth}{!}{
+\begin{tabular}{c p{1.0em} p{1.0em} p{1.0em} p{1.0em} l }
+\hline
+\textbf{Combination} &\multicolumn{5}{l}{\textbf{Included Optional Steps}}\\
+\cline{2-6}
+&\textbf{1}&\textbf{2}&\textbf{3}&\textbf{4}&\\
+\hline\hline
+\textbf{1}& X & & & &\\
+\hline
+\textbf{13}&  &  & X & X &\\
+\hline
+\textbf{14}&  &  &  & X &\\
+\hline
+\hline
+\textbf{15}& \multicolumn{4}{l}{Nano Particles Deposited, Not Sintered}&\\
+\hline
+\textbf{16}& \multicolumn{4}{l}{Only Grinded Wafer 1, No Particles Deposited, Not Sintered}&\\
+\hline
+\textbf{17}& \multicolumn{4}{l}{Only Grinded Wafer 2, No Particles Deposited, Not Sintered}&\\
+\hline
+\end{tabular}}
+ \caption{Combination Nomenclature, (Average Fill Factor)}
+  % \\[6pt] %Caption below table, for some reason
+  % \center{Combination Nomenclature, (Average Fill Factor)}
+\label{table:AverageFillFactor}
+\end{table}
+
+Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque
+felis eu massa.
+

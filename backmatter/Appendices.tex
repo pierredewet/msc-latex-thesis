@@ -1,0 +1,85 @@
+% Appendices
+\begin{appendices}
+% \chapter{APPENDICES}
+You do not have to have appendices in your report, but as they contain information that supports your work/findings, it is very likely that you will need to have them. It would be nice if appendices are numbered sequentially, starting with Appendix 1. It is up to you to judge what you will put in the appendices and what you will put as part of your report. As a guide you should include in appendices things a reader (examiner) of your report should not be expected to read, but which you think enhance the content and complement your
+work. You should definitely NOT use appendices as a way of extending the length of your report. For example, a User Guide is not an essential part of your work, it does not describe your work/findings, it only provides information about the way your prototype can be used; thus, the User Guide should be included as an appendix and it should be brief not explaining the obvious. Your original project proposal can be another example of what can be included in an appendix, especially if you compare and contrast in your report your findings/results to the objectives you had set in your proposal.
+
+\chapter{Some query code}
+\section{Frequent Query 1}
+\begin{lstlisting}[style=mySQL]
+SELECT 
+   h.country
+  ,d.month
+  ,COALESCE(ROUND((SUM(case when r.is_reserved = B'1' then 1 end))::numeric
+    / (h.total_rooms * d.days_in_month)::numeric*100,2),0) AS "Percent Reserved"
+  ,COALESCE(ROUND((SUM(case when r.is_unavailable = B'1' then 1 end))::numeric
+    / (h.total_rooms * d.days_in_month)::numeric*100,2),0) AS "Percent Unavailable"
+  ,100 -
+   (COALESCE(ROUND((SUM(case when r.is_reserved = B'1' then 1 end))::numeric
+    / (h.total_rooms * d.days_in_month)::numeric*100,2),0)
+   + COALESCE(ROUND((SUM(case when r.is_unavailable = B'1' then 1 end))::numeric
+    / (h.total_rooms * d.days_in_month)::numeric*100,2),0)) AS "Percent Free" 
+  FROM fact_room r
+  JOIN dim_date d
+    ON d.date = r.date
+   AND d.country_code = r.country_code
+  JOIN dim_hotel h
+    ON h.hotel_id = r.hotel_id 
+WHERE d.year = 2010    
+GROUP BY
+       h.country, d.month,h.total_rooms,d.days_in_month
+ORDER BY h.country, d.month ASC
+\end{lstlisting}
+
+\newpage
+\section{A java thingy}
+\begin{lstlisting}[style=myJava]
+/**
+ * The HelloWorldApp class implements an application that
+ * simply displays "Hello World!" to the standard output.
+ */
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!"); //Display the string.
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\chapter{Some more code}
+\section{A C++ thingy}
+\begin{lstlisting}[style=myC++]
+// a C++ thingy
+#include <iostream>
+
+int main ()
+{
+  std::cout << "Hello World! ";
+  std::cout << "I'm a C++ program";
+}
+\end{lstlisting}
+
+\newpage
+\section{Frequent Query 4}
+\begin{lstlisting}[style=mySQL]
+SELECT 
+    h.hotel_name
+   ,SUM(CASE WHEN r.is_reserved = B'1' then r.income end)
+  FROM fact_room r
+  JOIN dim_date d
+    ON d.date = r.date
+   AND d.country_code = r.country_code
+  JOIN dim_hotel h
+    ON h.hotel_id = r.hotel_id 
+  JOIN dim_feature f
+    ON f.feature_id = r.feature_id  
+ WHERE d.year = 2010
+   AND f.has_tv = B'1'
+   AND f.has_whirpool = B'1'
+GROUP BY
+       h.hotel_name
+\end{lstlisting}
+
+
+\end{appendices}
