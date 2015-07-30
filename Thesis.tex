@@ -2,6 +2,10 @@
 
 \input{./settings/Packages.tex}
 
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={(},close={)}}
+
 \begin{document}
 
 \input{./frontmatter/TitlePage.tex}
@@ -44,7 +48,7 @@
 
 %References
 \newpage
-\bibliographystyle{unsrt}
+\nocite{*}
 \bibliography{./backmatter/References}
 \input{./backmatter/Appendices.tex}
 \end{document}
