@@ -1,8 +1,5 @@
 \usepackage{classicthesis}
 \usepackage[left=2.54cm,right=2.54cm,top=3cm,bottom=3cm,includehead,includefoot]{geometry}
-% \titleformat{\chapter}[display]%
-%   {\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\chapterNumber\thechapter}}{0pt}%
-%   {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]% http://tex.stackexchange.com/questions/84698/how-to-move-chapter-number-in-classicthesis-class
 
 % Chapter number to the left of the chapter title
 \ifthenelse{\boolean{@eulerchapternumbers}}% font for the chapter numbers
@@ -34,13 +31,11 @@
 \newcommand{\normal}[1]{\multicolumn{1}{l}{#1}}
 \usepackage[font=small,skip=6pt,justification=centering,position=bottom]{caption} %space between figure/table and caption
 
-
 % font warnings
 \usepackage{textcomp}
 \usepackage[T1]{fontenc}
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
-
 
 \usepackage[english]{babel}
 \usepackage[nottoc]{tocbibind}
@@ -64,22 +59,16 @@
 \lstdefinestyle{myJava}{language=Java, style=numbers,style=myFrame, style=myCode}
 
 \usepackage{hyperref}
-\hypersetup{%draft, % = no hyperlinking at all (useful in b/w printouts)
-    %colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
-    colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,%
-    % uncomment the following line if you want to have black links (e.g., for printing)
-    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,% 
+\hypersetup{colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,%
     breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
     plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
-    hypertexnames=true, pdfhighlight=/O,%hyperfootnotes=true,%nesting=true,%frenchlinks,%
-    urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=blue, %pagecolor=RoyalBlue,%
-    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+    hypertexnames=true, pdfhighlight=/O, urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=blue, %
     pdftitle={},%
     pdfauthor={},%
     pdfsubject={},%
     pdfkeywords={},%
     pdfcreator={pdfLaTeX},%
-    pdfproducer={LaTeX with hyperref and classicthesis}%
+    pdfproducer={}%
 }   
 
 \makeatother
@@ -93,8 +82,6 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % add dots to toc section
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}} % add dots to toc subsection
 \renewcommand{\cftchapfont}{\bfseries\color{red}} %orange chapter font?
-%\input{classicthesis-config}
-
 
 \usepackage{bookmark}
 
@@ -116,9 +103,10 @@
 \renewcommand{\cftsubsecpagefont} % subsection page numbers
           {\cftsubsecfont}
 
-%LOF styling
-
-
+% LoF/LoT styling
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttableader}{\hfill}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
 
 \makeatletter
 \renewcommand*{\numberline}[1]
@@ -142,14 +130,4 @@
 \titleformat{\subsection}
 {\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
 
-% \input{./UserSettings.tex}
 \input{./settings/UserSettings.tex} 
-
-%  Signature and date includes
-% \newcommand{\namesigdate}[2][5cm]{%
-%   \begin{tabular}{@{}p{#1}@{}}
-%     #2 \\[2\normalbaselineskip]\includegraphics[width=0.2\textwidth]{./images/sig} \hrule \\[0pt]
-%     {\small \textit{Signature}} \\[2\normalbaselineskip] \today \hrule \\[0pt]
-%     {\small \textit{Date}}
-%   \end{tabular}
-% }
