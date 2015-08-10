@@ -1,6 +1,9 @@
 \usepackage{classicthesis}
 \usepackage[left=2.54cm,right=2.54cm,top=3cm,bottom=3cm,includehead,includefoot]{geometry}
 
+% Custom user settings
+\input{./settings/UserSettings.tex}
+
 % Chapter number to the left of the chapter title
 \ifthenelse{\boolean{@eulerchapternumbers}}% font for the chapter numbers
     {\newcommand\mychapterNumber{\fontencoding{U}\fontfamily{eur}\fontseries{b}\fontsize{18}{19}\selectfont}}%
@@ -129,4 +132,9 @@
 \titleformat{\subsection}
 {\normalfont\fontsize{12}{15}\bfseries}{\thesubsection}{1em}{}
 
-\input{./settings/UserSettings.tex} 
+% Custom footer
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ifoot[\studentfullname{}]{\studentfullname{}}
+\cfoot[\pagemark]{\pagemark}
